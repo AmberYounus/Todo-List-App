@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './App.css';
 const getLocalItems = () => {
     let list = localStorage.getItem('lists');
     // console.log(list);
@@ -79,19 +79,19 @@ const Todo = () => {
     return (
         <>
             <div className="main">
-                <div>
-                    <img src="" alt="todo" />
+             
+                  <h1>To Do List</h1>
                     <figure>
-                        <figcaption>Add your list</figcaption>
+                        <figcaption>Add your Item</figcaption>
                     </figure>
                     <div className="addItems">
-                        <input type="text" placeholder='Add Items' value={inputData}
+                        <input type="text" placeholder='Add Items.....' value={inputData}
                             onChange={(e) => setInputData(e.target.value)} />
                         {
-                            toggleSubmit ? <i className="fas fa-plus" onClick={addItem}
-                                title='Add Item' style={{ color: "#000000" }}>+</i> :
-                                <i className="far fa-edit" onClick={addItem}
-                                    title='Add Item' style={{ color: "#000000" }}>++</i>
+                            toggleSubmit ? <i className="fa fa-pencil" style={{fontSize:"22px",paddingLeft:"5px"}} onClick={addItem}
+                                title='Add Item' ></i> :
+                                <i className="fa fa-pencil" onClick={addItem} style={{fontSize:"22px",paddingLeft:"5px"}}
+                                    title='Add Item'></i>
                         }
 
                     </div>
@@ -104,20 +104,20 @@ const Todo = () => {
                                     <div className="eachItem" key={elem.id}>
                                         <h3>{elem.name}</h3>
                                         <div className="todo-btn">
-                                            <i className="fas fa-pen" title='Edit Item' onClick={() => editItem(elem.id)}>++</i>
-                                            
-                                            <i className="fas fa-trash-alt" title='Delete Item' onClick={() => deleteItem(elem.id)}>-</i>
+                                            <i className="fa fa-pencil" style={{fontSize:"24px",paddingRight:"5px"}} title='Edit Item' onClick={() => editItem(elem.id)}></i>
+                                           
+                                            <i className="fa fa-trash" style={{fontSize:"24px"}}  title='Delete Item' onClick={() => deleteItem(elem.id)}></i>
                                         </div>
                                     </div>
                                 )
                             })
                         }
-                    </div>
-                    <div className="showItems">
-                        <button className='btn' data-sm-link-text="Remove All" onClick={removeAll}><span>Check List</span>    </button>
-                    </div>
-                </div>
+                 
             </div>
+                    <div className="showItems">
+                        <button className='btn' data-sm-link-text="Remove All" onClick={removeAll}><span>Remove All Items</span>    </button>
+                    </div>
+                    </div>
         </>
     )
 }
